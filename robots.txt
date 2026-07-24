@@ -7,4 +7,4 @@ Allow: /
 User-agent: NaverBot
 Allow: /
 
-Sitemap: http://organicliving.co.kr/sitemap.xml
+Sitemap: https://xn--o39a1ni7nl9e2oc6zsmmjk7xea828d.com/sitemap.xml

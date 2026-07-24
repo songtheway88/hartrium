@@ -24,6 +24,6 @@ if (menuButton && mobileNav) {
 document.querySelectorAll(".reservation-form").forEach((form) => {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
-    alert("상담 신청 기능은 접수 서버 연결 후 활성화됩니다. 현재는 대표번호 1844-1315로 문의해 주세요.");
+    alert("상담 신청 기능은 접수 서버 연결 후 활성화됩니다. 현재는 대표번호 1844-1372로 문의해 주세요.");
   });
 });

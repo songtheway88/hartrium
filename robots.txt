@@ -4,4 +4,7 @@ Allow: /
 User-agent: Yeti
 Allow: /
 
+User-agent: NaverBot
+Allow: /
+
 Sitemap: http://organicliving.co.kr/sitemap.xml

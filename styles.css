@@ -318,21 +318,110 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 .reservation-form {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 20px;
   background: var(--white);
   color: var(--ink);
-  padding: 24px;
+  padding: 36px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
 }
-.reservation-form label { display: grid; gap: 7px; font-weight: 750; }
+.reservation-form label { display: grid; gap: 8px; font-weight: 750; font-size: 15px; }
+.reservation-form label.span-2 { grid-column: 1 / -1; }
 .reservation-form input, .reservation-form select {
   width: 100%;
-  min-height: 46px;
-  border: 1px solid var(--line);
-  padding: 0 12px;
+  min-height: 48px;
+  border: 1px solid #e1deda;
+  background: #f7f5f2;
+  border-radius: 8px;
+  padding: 0 16px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
-.reservation-form .agree, .reservation-form button { grid-column: 1 / -1; }
-.reservation-form .agree { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; }
-.reservation-form .agree input { width: auto; min-height: 0; }
+.reservation-form input:focus, .reservation-form select:focus, .reservation-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--white);
+}
+.reservation-form textarea {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #e1deda;
+  background: #f7f5f2;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 15px;
+  resize: vertical;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.req {
+  color: #e03e2f;
+  margin-left: 2px;
+  font-weight: bold;
+}
+.span-2 {
+  grid-column: 1 / -1;
+}
+.field-group {
+  display: grid;
+  gap: 10px;
+}
+.channel-title {
+  font-weight: 750;
+  font-size: 15px;
+}
+.channel-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.channel-chip {
+  cursor: pointer;
+}
+.channel-chip input {
+  display: none;
+}
+.channel-chip span {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid #dde5e1;
+  border-radius: 20px;
+  font-size: 14px;
+  background: var(--white);
+  color: var(--muted);
+  transition: all 0.2s ease;
+}
+.channel-chip input:checked + span {
+  background: var(--gold);
+  color: #16120b;
+  border-color: var(--gold);
+  font-weight: 800;
+}
+.reservation-form .agree {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  cursor: pointer;
+}
+.reservation-form .agree input {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--gold);
+}
+.reservation-form button {
+  background: var(--gold);
+  color: #16120b;
+  border: 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.reservation-form button:hover {
+  background: #a37933;
+}
 
 .site-footer { padding: 42px 0 86px; background: #101816; color: rgba(255,255,255,.76); }
 .footer-grid { display: flex; justify-content: space-between; gap: 28px; }

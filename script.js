@@ -34,13 +34,21 @@ document.querySelectorAll(".reservation-form").forEach((form) => {
     const formData = new FormData(form);
     const name = formData.get("name");
     const phone = formData.get("phone");
-    const interest = formData.get("interest");
+    const type = formData.get("type");
+    const residence = formData.get("residence") || "미입력";
+    const visitDate = formData.get("visit_date") || "미입력";
+    const message = formData.get("message") || "미입력";
+    const source = formData.get("source") || "미입력";
 
     // 텔레그램 알림 메시지 구성
     const text = `🔔 [가경 하트리움 더 센트럴] 새로운 상담 예약 접수!\n\n` +
-                 `• 성함: ${name}\n` +
+                 `• 이름: ${name}\n` +
                  `• 연락처: ${phone}\n` +
-                 `• 관심 내용: ${interest}\n` +
+                 `• 관심 평형: ${type}\n` +
+                 `• 현재 거주지: ${residence}\n` +
+                 `• 방문희망 일시: ${visitDate}\n` +
+                 `• 문의사항: ${message}\n` +
+                 `• 알게 된 경로: ${source}\n\n` +
                  `• 접수 일시: ${new Date().toLocaleString('ko-KR')}`;
 
     const botToken = "8891975056:AAGU0OBBikZXf0TsnnXb9Q7TC8MUFsCM-zA";
@@ -67,7 +75,7 @@ document.querySelectorAll(".reservation-form").forEach((form) => {
     } finally {
       if (submitButton) {
         submitButton.disabled = false;
-        submitButton.textContent = "상담 예약하기";
+        submitButton.innerHTML = "상담 신청하기 &rarr;";
       }
     }
   });

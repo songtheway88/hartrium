@@ -399,11 +399,35 @@
           <p>분양가, 평면도, 민간임대 조건, 관리비, 입지 상담은 예약 후 방문하면 더 빠르게 확인할 수 있습니다.</p>
         </div>
         <form class="reservation-form" action="#" method="post">
-          <label>성함<input type="text" name="name" placeholder="성함 입력"></label>
-          <label>연락처<input type="tel" name="phone" placeholder="010-0000-0000"></label>
-          <label>관심 내용<select name="interest"><option>분양가 상담</option><option>평면도 상담</option><option>민간임대 조건</option><option>관리비 문의</option><option>입지 상담</option></select></label>
-          <label class="agree"><input type="checkbox" required> 개인정보 수집·이용에 동의합니다.</label>
-          <button type="submit">상담 예약하기</button>
+          <label>이름 <span class="req">*</span><input type="text" name="name" placeholder="홍길동" required></label>
+          <label>연락처 <span class="req">*</span><input type="tel" name="phone" placeholder="010-0000-0000" required></label>
+          <label>관심 평형 <span class="req">*</span>
+            <select name="type" required>
+              <option value="" disabled selected>선택해 주세요</option>
+              <option value="84A">84㎡ A (아파트)</option>
+              <option value="84B">84㎡ B (아파트)</option>
+              <option value="84C">84㎡ C (아파트)</option>
+              <option value="84OA">84㎡ OA (오피스텔)</option>
+              <option value="84OB">84㎡ OB (오피스텔)</option>
+            </select>
+          </label>
+          <label>현재 거주지<input type="text" name="residence" placeholder="서울시 강남구"></label>
+          <label class="span-2">홍보관(모델하우스) 방문희망 일시<input type="text" name="visit_date" placeholder="예: 5월 15일 오후 2시 (또는 미정)"></label>
+          <label class="span-2">문의사항<textarea name="message" placeholder="궁금한 점을 남겨주세요."></textarea></label>
+          <div class="span-2 field-group">
+            <span class="channel-title">어디서 알게 되셨나요?</span>
+            <div class="channel-group">
+              <label class="channel-chip"><input type="radio" name="source" value="네이버 검색"><span>네이버 검색</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="네이버 블로그"><span>네이버 블로그</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="네이버 배너광고"><span>네이버 배너광고</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="유튜브"><span>유튜브</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="인스타그램"><span>인스타그램</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="페이스북"><span>페이스북</span></label>
+              <label class="channel-chip"><input type="radio" name="source" value="기타"><span>기타</span></label>
+            </div>
+          </div>
+          <label class="agree span-2"><input type="checkbox" required><span>(필수) <a href="#" onclick="alert('개인정보 수집 및 이용 동의...\n\n목적: 상담 및 예약 안내\n항목: 이름, 연락처, 관심 평형, 거주지, 방문희망일시, 문의사항, 유입 경로\n보유기간: 분양 종료 시까지'); return false;" style="text-decoration: underline;">개인정보 수집 및 이용</a>에 동의합니다</span></label>
+          <button type="submit" class="span-2">상담 신청하기 &rarr;</button>
         </form>
       </div>
     </section>

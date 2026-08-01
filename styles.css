@@ -497,9 +497,10 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 @media (max-width: 640px) {
   .bar { width: calc(100% - 24px); height: 64px; }
   .brand { min-width: 0; }
-  .brand strong { font-size: 14px; }
+  .brand strong { font-size: 14px; white-space: nowrap; }
   .brand em { display: none; }
   .hero-content { width: calc(100% - 24px); padding: 100px 0 60px; }
+  .hero-content h1 { font-size: clamp(24px, 7vw, 40px); word-break: keep-all; }
   .hero-lead { font-size: 17px; }
   .quick-strip { width: calc(100% - 24px); grid-template-columns: 1fr 1fr; }
   .quick-strip a { padding: 14px 12px; }

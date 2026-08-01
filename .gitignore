@@ -1,0 +1,6 @@
+# Ignore large raw video file
+images/가경하트리움.mp4
+
+# OS metadata
+.DS_Store
+images/.DS_Store

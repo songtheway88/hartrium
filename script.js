@@ -85,3 +85,17 @@ document.querySelectorAll(".reservation-form").forEach((form) => {
     }
   });
 });
+
+// Collapsible detailed guide toggle
+const guideToggleBtn = document.querySelector("[data-guide-toggle]");
+const guideContent = document.querySelector("[data-guide-content]");
+
+if (guideToggleBtn && guideContent) {
+  guideToggleBtn.addEventListener("click", () => {
+    const isExpanded = guideContent.classList.toggle("is-expanded");
+    guideToggleBtn.setAttribute("aria-expanded", String(isExpanded));
+    guideToggleBtn.innerHTML = isExpanded 
+      ? `가경 하트리움 더 센트럴 상세 가이드 닫기 ▲` 
+      : `가경 하트리움 더 센트럴 상세 가이드 전체보기 ▼`;
+  });
+}

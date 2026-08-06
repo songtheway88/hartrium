@@ -51,25 +51,14 @@ document.querySelectorAll(".reservation-form").forEach((form) => {
                  `• 알게 된 경로: ${source}\n\n` +
                  `• 접수 일시: ${new Date().toLocaleString('ko-KR')}`;
 
-    const botToken = "8891975056:AAGU0OBBikZXf0TsnnXb9Q7TC8MUFsCM-zA";
-    const chatIds = ["8753795118", "8729393025"];
-
     try {
-      const sendPromises = chatIds.map((chatId) =>
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: text
-          })
-        })
-      );
+      const response = await fetch("/.netlify/functions/send-telegram", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ text: text })
+      });
 
-      const responses = await Promise.all(sendPromises);
-      const isAnySuccess = responses.some((response) => response.ok);
-
-      if (isAnySuccess) {
+      if (response.ok) {
         alert("상담 예약 신청이 정상적으로 접수되었습니다. 담당자가 곧 연락드리겠습니다.");
         form.reset();
       } else {

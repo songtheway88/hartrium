@@ -502,6 +502,10 @@
           <p>분양가, 평면도, 민간임대 조건, 관리비, 입지 상담은 예약 후 방문하면 더 빠르게 확인할 수 있습니다.</p>
         </div>
         <form class="reservation-form" action="#" method="post">
+          <!-- 보이지 않는 필드 (스팸 봇 방지용 허니팟) -->
+          <div style="display: none !important;">
+            <label>이메일 확인 <input type="text" name="email_confirm" tabindex="-1" autocomplete="off"></label>
+          </div>
           <label>이름 <span class="req">*</span><input type="text" name="name" placeholder="홍길동" required></label>
           <label>연락처 <span class="req">*</span><input type="tel" name="phone" placeholder="010-0000-0000" required></label>
           <label>관심 평형 <span class="req">*</span>

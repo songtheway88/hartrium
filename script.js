@@ -110,3 +110,159 @@ if (guideToggleBtn && guideContent) {
       : `가경 하트리움 더 센트럴 상세 가이드 전체보기 ▼`;
   });
 }
+
+// ==========================================================================
+// 모바일 룰렛 이벤트 관련 스크립트
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const backdrop = document.getElementById("roulette-modal-backdrop");
+  const canvas = document.getElementById("roulette-canvas");
+  const spinBtn = document.getElementById("roulette-spin-btn");
+  const closeBtn = document.getElementById("roulette-close-btn");
+  const closeFooterBtn = document.getElementById("roulette-close-footer-btn");
+  const hideTodayBtn = document.getElementById("roulette-hide-today-btn");
+  const winOverlay = document.getElementById("roulette-win-overlay");
+  const winCtaBtn = document.getElementById("roulette-win-cta-btn");
+
+  if (!backdrop || !canvas) return;
+
+  // 모바일 접속 여부 판단
+  function isMobileDevice() {
+    return window.innerWidth <= 768 || /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+  }
+
+  // 룰렛 그리기 함수
+  function drawRoulette() {
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+    const cx = width / 2;
+    const cy = height / 2;
+    const radius = width / 2 - 10;
+
+    const numSectors = 4;
+    // 시안에 맞춰 프리미엄 색상 팔레트 지정
+    const colors = ["#d03838", "#4b779a", "#1f5945", "#10223f"];
+    const angleStep = (2 * Math.PI) / numSectors;
+
+    ctx.clearRect(0, 0, width, height);
+
+    // 1. 외곽 골드 테두리 베이스 원
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, 2 * Math.PI);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.lineWidth = 6;
+    ctx.strokeStyle = "#b88a3d";
+    ctx.stroke();
+
+    for (let i = 0; i < numSectors; i++) {
+      const startAngle = i * angleStep;
+      const endAngle = startAngle + angleStep;
+
+      // 2. 부채꼴 섹션 그리기
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.arc(cx, cy, radius - 3, startAngle, endAngle);
+      ctx.closePath();
+      ctx.fillStyle = colors[i];
+      ctx.fill();
+
+      // 3. 골드 구분선 그리기
+      ctx.beginPath();
+      ctx.moveTo(cx, cy);
+      ctx.lineTo(cx + (radius - 3) * Math.cos(startAngle), cy + (radius - 3) * Math.sin(startAngle));
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = "#dfb36c";
+      ctx.stroke();
+
+      // 4. 물음표(?) 텍스트 그리기
+      ctx.save();
+      ctx.translate(cx, cy);
+      const textAngle = startAngle + angleStep / 2;
+      ctx.rotate(textAngle);
+      ctx.translate(radius * 0.55, 0);
+      ctx.rotate(Math.PI / 2); // 텍스트 방향을 회전 반경에 수직으로 세움
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 32px NanumSquareNeo, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText("?", 0, 0);
+      ctx.restore();
+    }
+  }
+
+  // 모달 닫기
+  function closeModal() {
+    backdrop.classList.remove("is-visible");
+  }
+
+  // 초기 실행 로직
+  function initRoulette() {
+    // 오늘 하루 보지 않기 여부 확인
+    const hideUntil = localStorage.getItem("hideRouletteEventUntil");
+    const isBlocked = hideUntil && Date.now() < parseInt(hideUntil, 10);
+
+    if (isMobileDevice() && !isBlocked) {
+      backdrop.classList.add("is-visible");
+      drawRoulette();
+    }
+  }
+
+  // 룰렛 스핀 동작
+  let isSpinning = false;
+  if (spinBtn) {
+    spinBtn.addEventListener("click", () => {
+      if (isSpinning) return;
+      isSpinning = true;
+      spinBtn.disabled = true;
+
+      // 최소 6바퀴 이상 충분히 회전하도록 설정 (회전 각도: 2160도 ~ 2520도 임의 지정)
+      const randomDegree = 6 * 360 + Math.floor(Math.random() * 360);
+      canvas.style.transform = `rotate(${randomDegree}deg)`;
+    });
+  }
+
+  // 룰렛 회전 애니메이션이 완료되었을 때 당첨 오버레이 띄우기
+  canvas.addEventListener("transitionend", () => {
+    if (winOverlay) {
+      winOverlay.style.display = "flex";
+    }
+  });
+
+  // 당첨 팝업의 관심고객 등록 가기 버튼 클릭 시
+  if (winCtaBtn) {
+    winCtaBtn.addEventListener("click", () => {
+      closeModal();
+      const visitSection = document.getElementById("visit");
+      if (visitSection) {
+        visitSection.scrollIntoView({ behavior: "smooth" });
+        // 스무스 스크롤이 끝나는 타이밍에 맞춰 입력 포커싱 처리
+        setTimeout(() => {
+          const nameInput = visitSection.querySelector('input[name="name"]');
+          if (nameInput) {
+            nameInput.focus();
+          }
+        }, 800);
+      }
+    });
+  }
+
+  // 일반 닫기 버튼 이벤트 등록
+  if (closeBtn) closeBtn.addEventListener("click", closeModal);
+  if (closeFooterBtn) closeFooterBtn.addEventListener("click", closeModal);
+
+  // 오늘 하루 열지 않기 등록
+  if (hideTodayBtn) {
+    hideTodayBtn.addEventListener("click", () => {
+      const oneDayMs = 24 * 60 * 60 * 1000;
+      localStorage.setItem("hideRouletteEventUntil", (Date.now() + oneDayMs).toString());
+      closeModal();
+    });
+  }
+
+  // 초기화 함수 실행
+  initRoulette();
+});
+

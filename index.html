@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ko">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Google tag (gtag.js) [env deploy trigger] -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1GLMPYWX0W"></script>
   <script>
@@ -28,8 +30,6 @@
     src="https://www.facebook.com/tr?id=3178709688982142&ev=PageView&noscript=1"
   /></noscript>
   <!-- End Meta Pixel Code -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="format-detection" content="telephone=no">
   <title>가경 하트리움 더 센트럴 | 청주 가경동 민간임대</title>
   <meta name="description" content="가경 하트리움 더 센트럴 분양홍보관 (대표문의: ☎1844-1372) | 청주 가경동 민간임대 아파트·오피스텔 분양 정보, 타입별(84A/B/C, 84OA/OB) 평면도, 분양가, 관리비 확인 및 모델하우스 방문예약 안내.">
@@ -586,6 +586,44 @@
     <a href="tel:1844-1372">전화상담</a>
     <a href="#visit">방문예약</a>
   </div>
+
+  <!-- 모바일 룰렛 이벤트 모달 -->
+  <div id="roulette-modal-backdrop" class="roulette-backdrop" style="display: none;">
+    <div class="roulette-modal">
+      <div class="roulette-header">
+        <div class="roulette-title-area">
+          <span class="roulette-title">LIMITED EVENT</span>
+          <p class="roulette-subtitle">룰렛을 돌리고 특별 혜택을 확인해보세요</p>
+        </div>
+        <button type="button" class="roulette-close-btn" id="roulette-close-btn" aria-label="닫기">&times;</button>
+      </div>
+      <div class="roulette-body">
+        <div class="roulette-wheel-wrapper">
+          <div class="roulette-pointer"></div>
+          <div class="roulette-canvas-container" id="roulette-canvas-container">
+            <canvas id="roulette-canvas" width="280" height="280"></canvas>
+          </div>
+          <button type="button" class="roulette-spin-btn" id="roulette-spin-btn">
+            <span>EVENT</span>
+            <span>ROULETTE</span>
+          </button>
+        </div>
+      </div>
+      <div class="roulette-footer">
+        <button type="button" class="roulette-footer-btn" id="roulette-hide-today-btn">오늘 하루 열지 않기</button>
+        <button type="button" class="roulette-footer-btn" id="roulette-close-footer-btn">닫기</button>
+      </div>
+
+      <!-- 당첨 결과 오버레이 (모달 내부에서 뜨도록 설정) -->
+      <div id="roulette-win-overlay" class="roulette-win-overlay" style="display: none;">
+        <div class="roulette-win-content">
+          <img src="images/jeju-event.jpg" alt="제주도 2인 항공권 이벤트" class="roulette-win-img">
+          <button type="button" class="roulette-win-cta-btn" id="roulette-win-cta-btn">지금 바로 관심고객 등록하기 &rarr;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

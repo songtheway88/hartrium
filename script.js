@@ -249,6 +249,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // 당첨 팝업의 홈페이지 보러가기 버튼 클릭 시
+  const winHomeBtn = document.getElementById("roulette-win-home-btn");
+  if (winHomeBtn) {
+    winHomeBtn.addEventListener("click", () => {
+      closeModal();
+    });
+  }
+
   // 일반 닫기 버튼 이벤트 등록
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
   if (closeFooterBtn) closeFooterBtn.addEventListener("click", closeModal);

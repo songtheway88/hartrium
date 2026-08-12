@@ -590,12 +590,12 @@
   <!-- 모바일 룰렛 이벤트 모달 -->
   <div id="roulette-modal-backdrop" class="roulette-backdrop" style="display: none;">
     <div class="roulette-modal">
+      <button type="button" class="roulette-close-btn" id="roulette-close-btn" aria-label="닫기">&times;</button>
       <div class="roulette-header">
         <div class="roulette-title-area">
           <span class="roulette-title">LIMITED EVENT</span>
           <p class="roulette-subtitle">룰렛을 돌리고 특별 혜택을 확인해보세요</p>
         </div>
-        <button type="button" class="roulette-close-btn" id="roulette-close-btn" aria-label="닫기">&times;</button>
       </div>
       <div class="roulette-body">
         <div class="roulette-wheel-wrapper">
@@ -618,7 +618,10 @@
       <div id="roulette-win-overlay" class="roulette-win-overlay" style="display: none;">
         <div class="roulette-win-content">
           <img src="images/jeju-event.jpg" alt="제주도 2인 항공권 이벤트" class="roulette-win-img">
-          <button type="button" class="roulette-win-cta-btn" id="roulette-win-cta-btn">지금 바로 관심고객 등록하기 &rarr;</button>
+          <div class="roulette-win-btn-group">
+            <button type="button" class="roulette-win-cta-btn" id="roulette-win-cta-btn">지금 바로 관심고객 등록하기 &rarr;</button>
+            <button type="button" class="roulette-win-home-btn" id="roulette-win-home-btn">홈페이지 보러가기</button>
+          </div>
         </div>
       </div>
     </div>

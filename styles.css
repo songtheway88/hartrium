@@ -1014,7 +1014,6 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
     border-bottom: 2px solid var(--gold);
     padding: 16px;
     text-align: center;
-    position: relative;
   }
 
   .roulette-title {
@@ -1039,23 +1038,24 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
     position: absolute;
     right: 12px;
     top: 12px;
-    width: 24px;
-    height: 24px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: var(--white);
-    font-size: 18px;
-    line-height: 20px;
-    border-radius: 4px;
+    font-size: 20px;
+    line-height: 1;
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background 0.2s;
+    z-index: 50;
   }
 
   .roulette-close-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.5);
   }
 
   .roulette-body {
@@ -1192,26 +1192,34 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 16px;
   }
 
   .roulette-win-img {
     width: 100%;
-    max-height: calc(100% - 50px);
+    max-height: calc(100% - 110px);
     object-fit: contain;
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   }
 
+  .roulette-win-btn-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
   .roulette-win-cta-btn {
     width: 100%;
-    height: 40px;
+    height: 44px;
     background: var(--gold);
     border: none;
     color: var(--white);
     font-weight: 700;
-    font-size: 13px;
+    font-size: 14px;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 2px 6px rgba(184, 138, 61, 0.3);
@@ -1220,6 +1228,23 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 
   .roulette-win-cta-btn:active {
     background: var(--green);
+  }
+
+  .roulette-win-home-btn {
+    width: 100%;
+    height: 44px;
+    background: var(--white);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .roulette-win-home-btn:active {
+    background: var(--soft);
   }
 }
 

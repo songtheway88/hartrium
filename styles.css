@@ -1059,92 +1059,11 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
   }
 
   .roulette-body {
-    padding: 24px 16px;
+    padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: var(--white);
-  }
-
-  .roulette-wheel-wrapper {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .roulette-pointer {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 15px solid var(--gold);
-    z-index: 10;
-  }
-
-  .roulette-canvas-container {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
-    border: 3px solid var(--line);
-    background: #fff;
-  }
-
-  #roulette-canvas {
-    width: 100%;
-    height: 100%;
-    transform: rotate(0deg);
-    transition: transform 4s cubic-bezier(0.1, 0.8, 0.1, 1);
-  }
-
-  .roulette-spin-btn {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    background: #0f233c;
-    border: 3px solid var(--gold);
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 5;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    font-weight: 800;
-  }
-
-  .roulette-spin-btn span:first-child {
-    font-size: 8px;
-    color: var(--gold);
-    letter-spacing: 0.05em;
-    margin-bottom: 2px;
-  }
-
-  .roulette-spin-btn span:last-child {
-    font-size: 8px;
-    letter-spacing: -0.02em;
-  }
-
-  .roulette-spin-btn:active {
-    transform: translate(-50%, -50%) scale(0.95);
-  }
-
-  .roulette-spin-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.9;
   }
 
   .roulette-footer {
@@ -1173,23 +1092,8 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
     background: var(--soft);
   }
 
-  /* 당첨 팝업 오버레이 */
-  .roulette-win-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.98);
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    animation: rouletteFadeIn 0.3s ease-out forwards;
-  }
-
   .roulette-win-content {
     width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1199,7 +1103,7 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 
   .roulette-win-img {
     width: 100%;
-    max-height: calc(100% - 110px);
+    height: auto;
     object-fit: contain;
     border-radius: 6px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
@@ -1228,23 +1132,6 @@ details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 
   .roulette-win-cta-btn:active {
     background: var(--green);
-  }
-
-  .roulette-win-home-btn {
-    width: 100%;
-    height: 44px;
-    background: var(--white);
-    border: 1px solid var(--gold);
-    color: var(--gold);
-    font-weight: 700;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .roulette-win-home-btn:active {
-    background: var(--soft);
   }
 }
 

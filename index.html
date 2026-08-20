@@ -598,42 +598,27 @@
     <a href="#visit">방문예약</a>
   </div>
 
-  <!-- 모바일 룰렛 이벤트 모달 -->
+  <!-- 모바일 사은품 이벤트 모달 -->
   <div id="roulette-modal-backdrop" class="roulette-backdrop" style="display: none;">
     <div class="roulette-modal">
       <button type="button" class="roulette-close-btn" id="roulette-close-btn" aria-label="닫기">&times;</button>
       <div class="roulette-header">
         <div class="roulette-title-area">
           <span class="roulette-title">LIMITED EVENT</span>
-          <p class="roulette-subtitle">룰렛을 돌리고 특별 혜택을 확인해보세요</p>
+          <p class="roulette-subtitle">방문 예약/상담 신청 시 특별 혜택 증정!</p>
         </div>
       </div>
       <div class="roulette-body">
-        <div class="roulette-wheel-wrapper">
-          <div class="roulette-pointer"></div>
-          <div class="roulette-canvas-container" id="roulette-canvas-container">
-            <canvas id="roulette-canvas" width="280" height="280"></canvas>
+        <div class="roulette-win-content">
+          <img src="images/jeju-event.jpg" alt="제주도 2인 항공권 이벤트" class="roulette-win-img">
+          <div class="roulette-win-btn-group">
+            <button type="button" class="roulette-win-cta-btn" id="roulette-win-cta-btn">지금 바로 관심고객 등록하기 &rarr;</button>
           </div>
-          <button type="button" class="roulette-spin-btn" id="roulette-spin-btn">
-            <span>EVENT</span>
-            <span>ROULETTE</span>
-          </button>
         </div>
       </div>
       <div class="roulette-footer">
         <button type="button" class="roulette-footer-btn" id="roulette-hide-today-btn">오늘 하루 열지 않기</button>
         <button type="button" class="roulette-footer-btn" id="roulette-close-footer-btn">닫기</button>
-      </div>
-
-      <!-- 당첨 결과 오버레이 (모달 내부에서 뜨도록 설정) -->
-      <div id="roulette-win-overlay" class="roulette-win-overlay" style="display: none;">
-        <div class="roulette-win-content">
-          <img src="images/jeju-event.jpg" alt="제주도 2인 항공권 이벤트" class="roulette-win-img">
-          <div class="roulette-win-btn-group">
-            <button type="button" class="roulette-win-cta-btn" id="roulette-win-cta-btn">지금 바로 관심고객 등록하기 &rarr;</button>
-            <button type="button" class="roulette-win-home-btn" id="roulette-win-home-btn">홈페이지 보러가기</button>
-          </div>
-        </div>
       </div>
     </div>
   </div>

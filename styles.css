@@ -348,6 +348,13 @@ summary {
 }
 details p { color: var(--muted); padding-bottom: 18px; margin-bottom: 0; }
 
+.faq-talk-banner {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .visit { background: var(--green); color: var(--white); }
 .visit .section-kicker { color: #e7bc70; }
 .visit-box {
